@@ -1,6 +1,6 @@
 ---
 name: landing-page-design
-description: "Complete system for building high converting landing pages: intake questions, page structure, layout selection, conversion copywriting, SEO, plus strict visual rules for typography, spacing, corner radius, backgrounds, hero layout, icons, and motion. Use this skill whenever building, editing, styling, reviewing, or writing copy for ANY landing page, marketing site, web UI, page section, component, or prototype, even when the user does not mention design, conversion, tokens, or a design system. Always consult it before choosing page sections, headlines, CTAs, fonts, font sizes, spacing values, border radii, background colors, icons, or transitions."
+description: "Complete system for building, editing, styling, or reviewing landing pages and marketing UI: intake, page structure, conversion copy, SEO, adaptable visual rules, claim verification, visual-source verification, accessibility, responsive QA, and release evidence. Use whenever work touches a landing page, marketing site, campaign page, web UI section, conversion component, or prototype, even when the user does not explicitly ask for design, truth checking, mobile QA, or a design system. Always consult it before choosing sections, claims, proof, CTAs, media, fonts, spacing, colors, motion, or declaring a page ready to ship."
 ---
 
 # Landing Page Design
@@ -9,11 +9,11 @@ A landing page is not a homepage. A homepage serves multiple intents. A landing 
 
 **one offer → one audience → one primary action.**
 
-This skill has two halves. **Part A** decides what the page says and how it is structured. **Part B** is the non negotiable visual system. Work through A before touching B.
+This skill has three parts. **Part A** decides what the page says and how it is structured. **Part B** supplies an adaptable visual system. **Part C** verifies claims, media, accessibility, responsive behavior, and release readiness. Work through A before B, then complete C before calling the page ready.
 
 ## Scope
 
-Apply to all web UI work: landing pages, marketing sites, components, dashboards, prototypes, and design reviews. When a rule here conflicts with a framework default, this file wins. When the user's explicit prompt conflicts with a rule, the user wins.
+Apply to landing pages, marketing sites, campaign components, prototypes, and design reviews. The user's explicit direction wins. An existing brand system, product truth source, or proven control page also wins over this file's default visual profile. Never overwrite established brand or product truth merely to match a generic preference below.
 
 **Companion skill.** For upgrading an *existing* site rather than building a new one, use `redesign-existing-projects` ([github.com/elayadesign/redesign-skill](https://github.com/elayadesign/redesign-skill)). It diagnoses generic patterns and defers to this file for every concrete value.
 
@@ -41,13 +41,16 @@ Gather these before designing or writing. Ask only for what is missing, and ask 
 - Proof points: logos, testimonials, numbers, case studies
 - Screenshots, demo video, product GIFs
 - Guarantees, refund terms, cancellation terms
+- Source owner for every factual or commercial claim
+- Source owner for every product image, logo, testimonial, and proof asset
+- Verification date or freshness requirement when a claim can change
 
 **Constraints**
 - Brand voice: casual or professional
 - Design direction: minimal editorial, playful 3D, glass UI
 - Mobile priority?
 
-If the user cannot answer, make a reasonable assumption, state it in one line, and continue. Do not stall the build.
+If the user cannot answer, make and state reasonable assumptions about layout, hierarchy, and draft positioning. Do not invent prices, guarantees, deadlines, statistics, testimonials, customer identities, product details, or other factual claims. Mark those as explicit holds and continue with neutral copy or visibly labeled placeholders.
 
 ## A2. Page structure
 
@@ -69,7 +72,7 @@ If the user cannot answer, make a reasonable assumption, state it in one line, a
 11. Risk reversal, trial, cancel anytime, guarantee
 12. Final CTA, identical to the top
 
-Include the mandatory tagline reveal section from B11 somewhere in the mid page argument, typically right after the hero or after benefits.
+Use the tagline reveal pattern from B11 only when it strengthens the argument and fits the brand, typically after the hero or benefits.
 
 ## A3. Layout selection
 
@@ -94,7 +97,9 @@ Pick one and say why.
 - ❌ "Save time and streamline"
 - ✅ "Cut your weekly reporting from 4 hours to 15 minutes"
 
-**Reduce risk.** Pick at least one: free trial, free plan, no credit card, cancel anytime, money back guarantee.
+Specificity is not permission to fabricate. Every number and measurable outcome must be sourced, clearly labeled as an estimate, or replaced with non-numeric draft language.
+
+**Reduce risk.** Use a verified risk reversal when one exists: free trial, free plan, no credit card, cancel anytime, or money back guarantee. Never invent one to complete the page structure.
 
 **Treat objections as a section, not a footnote.** Move the FAQ earlier for high friction offers. Put proof directly beside the claim it supports.
 
@@ -111,7 +116,7 @@ Pick one and say why.
 
 **Benefit bullets.** Bold benefit, then the proof or detail. Example: **Faster iteration** — generate three layout variants in one click.
 
-Note: the copy rules in B1 still apply. No hyphens inside sentences, no orphaned words.
+Note: the copy and readability rules in B1 still apply.
 
 ## A6. Build order
 
@@ -140,36 +145,38 @@ Never rebuild the whole page on each iteration. Section by section keeps control
 - Proof buried at the bottom
 - Mobile layout that breaks readability
 - No clear next step
+- Unsourced numbers, testimonials, guarantees, comparisons, or urgency
+- Product or proof visuals whose source and accuracy are unknown
 
 ---
 
 # PART B — Visual system
 
-Every visual value must resolve through these rules instead of being invented ad hoc.
+This is the default visual profile, not a universal brand. Use an existing project design system first. When none exists, resolve visual values through these rules instead of inventing them ad hoc. Preserve a proven control page's visual language unless the requested work is an intentional redesign.
 
 ## B1. Typography
 
 ### Fonts
 
-**Use:** Geist, Manrope, Geist Mono, Poppins.
+**Default choices:** Geist, Manrope, Geist Mono, Poppins.
 
-**Never use:** Inter, Roboto, Arial, Open Sans, Helvetica.
+Prefer a project's existing licensed typeface. In a new unbranded build, avoid defaulting to Inter, Roboto, Arial, Open Sans, or Helvetica when a more distinctive approved choice is available.
 
-**Never use italic fonts** anywhere in the interface.
+Avoid decorative italics that reduce readability. Use italics when the brand system or content semantics genuinely call for them.
 
-**One typeface per site.** Do not pair two fonts unless the prompt explicitly asks for it. Geist Mono is allowed alongside a primary font only for code, data, or numeric UI where a monospace is functionally required.
+Default to one typeface per site. Pair two only when the brand system or design direction gives each a clear role. Geist Mono is allowed alongside a primary font for code, data, or numeric UI where monospace is functional.
 
 **Never use ultra bold weights** (900 / black). Cap at semibold or bold.
 
 ### Copy rules
 
-**No hyphens in text.** Do not use `-` inside body copy, headings, or labels. Rewrite the phrase instead.
+Use correct punctuation. Do not remove meaningful hyphens or dashes merely to satisfy a visual preference.
 
 **No orphaned words.** A single word must never sit alone on the last line. Apply `text-wrap: balance` for headings and `text-wrap: pretty` for body copy.
 
 ### Type scale
 
-Always resolve font sizes to Tailwind's default type scale. Never leave arbitrary values in place, including `text-[19px]`, `font-size: 22px`, or `1.4rem`.
+Use the project's type tokens when they exist. Otherwise resolve font sizes to Tailwind's default type scale and avoid one-off arbitrary values such as `text-[19px]`, `font-size: 22px`, or `1.4rem`.
 
 If an existing size does not land exactly on a step, snap it to the **closest step below**, taking both the size and its paired line height.
 
@@ -198,7 +205,7 @@ Do not combine scale snapping with independently set custom line heights elsewhe
 
 ## B2. Spacing
 
-Only these values. Nothing between them, nothing outside them.
+Use the project's spacing tokens when they exist. Otherwise use only these fallback values.
 
 | Token | Value |
 |---|---|
@@ -220,7 +227,7 @@ Only these values. Nothing between them, nothing outside them.
 
 ## B3. Corner radius
 
-Only use Tailwind's radius values.
+Use the project's radius tokens when they exist. Otherwise use Tailwind's radius values.
 
 **Nested radius formula.** When a shape sits inside another shape and the gap between them is **less than 32px**:
 
@@ -234,12 +241,12 @@ Example: an outer card at `rounded-2xl` (16px) with 8px of internal padding give
 
 ## B4. Borders and backgrounds
 
-- **Never apply a border to only one side of a card.** Borders go all the way around or not at all.
-- **Never use gradients in backgrounds.** Backgrounds are flat.
+- In the default profile, borders go all the way around a card or are omitted. A brand system may define intentional edge accents.
+- In the default profile, backgrounds are flat. Use gradients only when the chosen design direction explicitly calls for them and contrast remains accessible.
 
 ### Dark mode background colors
 
-Use only these:
+Default dark-mode surfaces:
 
 `#000000` · `#181818` · `#1F1F1F` · `#272727` · `#313131` · `#131209`
 
@@ -247,10 +254,10 @@ Use only these:
 
 ### Heading color
 
-- **Dark theme:** left to right gradient on the heading text, `#FFFFFF` → `#9B9B9B`.
-- **Light theme:** left to right gradient on the heading text, `#000000` → `#666666`.
+- **Default dark theme:** left to right gradient on the heading text, `#FFFFFF` → `#9B9B9B`.
+- **Default light theme:** left to right gradient on the heading text, `#000000` → `#666666`.
 
-This is the one place gradients are used, and only on text, never on the background.
+This is the default profile's only gradient. Skip it when it conflicts with the brand or reduces readability.
 
 ### Layout
 
@@ -260,19 +267,21 @@ This is the one place gradients are used, and only on text, never on the backgro
 
 ## B6. Icons
 
-**Use:** Phosphor, Solar, or Iconamoon.
+**Default choices:** Phosphor, Solar, or Iconamoon.
 
-**Never use:** Material Icons, Material Symbols.
+Use the project's existing icon family when one exists. Do not mix unrelated icon families on the same page.
 
 ## B7. Motion choreography (fluid dynamics)
 
-Never use default transitions. All motion simulates real world mass and spring physics through custom cubic beziers.
+Motion is optional and must communicate hierarchy, state, or continuity. Do not animate merely to make the page feel generated. When motion is used, prefer custom cubic beziers that suggest real-world mass.
 
 ```
 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)]
 ```
 
-### Fluid island nav
+Every animation must respect `prefers-reduced-motion: reduce`. Essential content and controls must remain visible and usable when animation JavaScript fails or motion is disabled.
+
+### Fluid island nav (when selected)
 
 **Closed state.** The navbar is a floating glass pill detached from the top: `mt-6`, `mx-auto`, `w-max`, `rounded-full`.
 
@@ -282,9 +291,9 @@ transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)]
 
 **Staggered mask reveal.** Nav links inside the expanded state fade in and slide up from an invisible box, `translate-y-12 opacity-0` resolving to `translate-y-0 opacity-100`, staggered per item with `delay-100`, `delay-150`, `delay-200`, and so on.
 
-### Scroll interpolation
+### Scroll interpolation (optional)
 
-Elements never appear statically on load. As they enter the viewport they execute a gentle, heavy fade up:
+When scroll motion supports the design direction, elements may enter with a gentle fade up:
 
 ```
 translate-y-16 blur-md opacity-0  →  translate-y-0 blur-0 opacity-100
@@ -292,7 +301,7 @@ translate-y-16 blur-md opacity-0  →  translate-y-0 blur-0 opacity-100
 
 over 800ms or longer.
 
-For JavaScript driven reveals use `IntersectionObserver` or Framer Motion's `whileInView`. **Never use `window.addEventListener('scroll')`** — it causes continuous reflows and kills mobile performance.
+For JavaScript-driven reveals use `IntersectionObserver` or Framer Motion's `whileInView`. Avoid unthrottled scroll listeners. Render content visible by default, then apply motion as progressive enhancement so a script failure never leaves the page blank.
 
 ---
 
@@ -301,9 +310,9 @@ For JavaScript driven reveals use `IntersectionObserver` or Framer Motion's `whi
 Never ship filler. These are the tells that a page was generated rather than made.
 
 - **No Lorem Ipsum.** Write real draft copy.
-- **No "John Doe".** Use diverse, realistic names.
-- **No placeholder brands** like "Acme Corp", "Nexus", or "SmartFlow". Invent contextual, believable names.
-- **No round fake numbers** like `99.99%`, `50%`, `$100.00`. Use organic data: `47.2%`, `$99.00`, `+1 (312) 847-1928`.
+- **No invented customer identities or testimonials.** Use sourced identities, approved anonymization, or clearly labeled placeholders.
+- **No placeholder brands presented as real.** In prototypes, label fictional names and data clearly.
+- **No fake precision.** Use sourced numbers, a clearly labeled estimate, or an explicit placeholder token such as `{{VERIFIED_STAT}}`.
 - **No AI cliches.** Never "Elevate", "Seamless", "Unleash", "Next Gen", "Game changer", "Delve", "Tapestry", or "In the world of".
 - **Sentence case headers**, not Title Case On Everything.
 - **Active voice.** "We could not save your changes", not "Mistakes were made".
@@ -312,7 +321,7 @@ Never ship filler. These are the tells that a page was generated rather than mad
 
 ## B9. States
 
-Every interactive element ships with its full state set:
+Every interactive element ships with every state it can actually enter:
 
 - **Hover** — background shift, slight scale, or translate
 - **Active** — `scale(0.98)` or `translateY(1px)` for physical feedback
@@ -325,7 +334,7 @@ No dead links. A button pointing at `#` is either linked or visually disabled. T
 
 ## B10. Ship requirements
 
-Things that get forgotten and make a page feel unfinished:
+Things that get forgotten and make a page feel unfinished. Apply site-level items when the page or project owns them:
 
 - Privacy policy and terms links in the footer
 - A custom, branded 404
@@ -338,9 +347,9 @@ Things that get forgotten and make a page feel unfinished:
 - Semantic HTML: `<nav>`, `<main>`, `<article>`, `<aside>`, `<section>`
 - A way back from every page
 
-## B11. Tagline reveal section (mandatory)
+## B11. Tagline reveal section (optional signature)
 
-Every landing page includes one large type section stating the core benefit or tagline, separate from the hero. It sits further down the page as its own moment, not stacked directly under the hero.
+Use this pattern when a large type moment reinforces the core benefit and fits the brand. It sits further down the page as its own moment, not stacked directly under the hero.
 
 **Copy**
 - Minimum two lines of text.
@@ -355,6 +364,104 @@ Every landing page includes one large type section stating the core benefit or t
 - As the section scrolls into view, each word transitions individually from that muted tone to the full text color, in reading order.
 - Words activate one at a time as they cross a trigger line, not the entire block flipping at once. The transition uses the custom easing curve from B7, never a linear fade.
 - Implement with `IntersectionObserver` per word, or a single scroll listener throttled through `requestAnimationFrame`. Never an unthrottled `window.addEventListener('scroll')`, per B7.
+- Under `prefers-reduced-motion: reduce`, show the final fully legible text without word-by-word animation.
+
+---
+
+# PART C — Truth and release gates
+
+These gates are part of this skill. Run them automatically; do not wait for the user to remember a separate audit.
+
+Apply them proportionally. During ideation, preserve unknown facts and media as visible holds. Run the full rendered and performance evidence pass before a production-ready claim, launch handoff, or final review.
+
+## C1. Claim truth gate
+
+Build a claim inventory before final copy and recheck it before shipping. Include:
+
+- offer, price, discount, trial, guarantee, refund, cancellation, and shipping terms
+- deadlines, countdowns, availability, inventory, or urgency
+- product capabilities, specifications, integrations, comparisons, and performance claims
+- statistics, customer counts, logos, awards, case studies, testimonials, and quoted outcomes
+
+For each claim record:
+
+- exact claim and page location
+- source owner and source link or file
+- status: `verified`, `estimate`, `placeholder`, or `hold`
+- verification date when the fact can change
+
+Rules:
+
+- A competitor, old page, mockup, or generated draft is a pattern source, not factual truth.
+- Proof must support the exact nearby claim, not merely the general company.
+- Estimates must be labeled as estimates.
+- If a material claim lacks a source, use neutral draft language or leave an explicit hold.
+- Contradictory CTA destinations, prices, terms, or guarantees block shipping.
+- A countdown without a verified basis, end time, and timezone blocks shipping.
+
+Result: `PASS`, `PASS WITH WARNINGS`, or `BLOCKED`.
+
+## C2. Visual truth gate
+
+Inventory every meaningful image, video, logo, avatar, screenshot, badge, and proof graphic. For each asset record:
+
+- page slot and file path or URL
+- source owner
+- what the asset visibly depicts
+- any product, identity, result, certification, or offer claim carried by the pixels
+- approval status and review note
+
+Rules:
+
+- Real product references own product details. Do not let generated imagery invent labels, controls, packaging, screens, ports, or included items.
+- Logos, testimonials, awards, press marks, and customer identities must map to real approved sources.
+- Legacy assets are not current truth by default.
+- Generated or materially edited product and proof visuals require visual review.
+- When several assets changed or product fidelity is important, create a contact sheet for one-glance review.
+- Broken, missing, or unapproved claim-bearing media blocks shipping. Decorative draft media may ship only when clearly approved for that use.
+
+Result: `PASS`, `PASS WITH WARNINGS`, or `BLOCKED`.
+
+## C3. Responsive ship check
+
+For an existing page, capture a baseline before editing. Verify the rendered result, not source code alone.
+
+Test at minimum:
+
+- `320px`, `360px`, `375px`, `390px`, and `430px`
+- one tablet width
+- one desktop width
+
+Check:
+
+- no horizontal overflow
+- CTA text bounds remain inside the button; `white-space: nowrap` alone is not proof
+- readable first viewport, clear primary action, usable touch targets, and no obscured content
+- keyboard navigation, visible focus, semantic landmarks, labels, and useful alt text
+- sticky or fixed UI does not cover content or controls
+- forms show relevant validation, loading, success, and error states
+- motion respects reduced-motion settings and content remains visible without animation
+- meaningful images have dimensions; below-fold media is lazy-loaded where appropriate
+- no broken links, missing assets, or buyer-facing console errors
+
+Measure performance with Lighthouse or the closest available equivalent. Record the tested URL or build, LCP, CLS, and the largest remaining bottleneck. For edits, report before and after. A static checklist is not a substitute for screenshots or browser verification.
+
+Result: `PASS`, `PASS WITH WARNINGS`, or `BLOCKED`.
+
+## C4. Release receipt
+
+Do not say a page is ready without this evidence:
+
+```text
+Readiness: READY | READY WITH CAVEATS | BLOCKED
+Target: [page, URL, build, or commit]
+Claim truth: [result + source summary]
+Visual truth: [result + source/contact-sheet summary]
+Responsive QA: [widths, browsers, screenshots, result]
+Accessibility: [keyboard, focus, semantics, reduced motion]
+Performance: [tested target, LCP, CLS, largest bottleneck]
+Remaining holds: [only material unresolved items]
+```
 
 ---
 
@@ -369,8 +476,10 @@ When generating a landing page from scratch, return these in order before writin
 5. **FAQ** — six to twelve questions and answers
 6. **SEO / AEO** — index or noindex recommendation, plus title and meta if indexed
 7. **Layout recommendation** — A, B, C, or D, and why
+8. **Truth lock** — verified claims, estimates, placeholders, and holds
+9. **Media plan** — source owner and approval status for each meaningful asset
 
-Then build section by section per A6.
+Then build section by section per A6. After implementation, return the Part C release receipt.
 
 ---
 
@@ -380,24 +489,37 @@ Then build section by section per A6.
 - [ ] One offer, one audience, one primary action
 - [ ] No competing CTAs above the fold
 - [ ] Specific numbers instead of vague verbs
-- [ ] At least one risk reversal
+- [ ] Every factual number and commercial term has a source or explicit hold
+- [ ] Risk reversal is verified, not invented
 - [ ] Proof sits next to the claim it supports
 - [ ] Layout type chosen deliberately
 
 **Visual**
-- [ ] Single approved typeface, no italics, no ultra bold
-- [ ] No hyphens in copy, no orphaned words
-- [ ] Every font size lands on a Tailwind scale step
-- [ ] Every spacing value comes from the spacing table
+- [ ] Existing brand/design tokens were used when available
+- [ ] Typography choices are readable and intentional
+- [ ] No orphaned words in important headings or CTAs
+- [ ] Font and spacing values resolve through project tokens or the fallback scale
 - [ ] Nested radii follow the formula
-- [ ] No single sided card borders, no background gradients
+- [ ] Borders and gradients match the chosen design direction
 - [ ] Hero heading and subheading capped at 680px with meaningful line breaks
-- [ ] Icons from Phosphor, Solar, or Iconamoon
-- [ ] Every transition uses a custom cubic bezier, scroll reveals use IntersectionObserver
-- [ ] Tagline reveal section present, minimum two lines, words activate one at a time on scroll
+- [ ] One coherent icon family
+- [ ] Motion has a purpose, uses efficient primitives, and respects reduced motion
+- [ ] Essential content remains visible if animation does not run
+
+**Truth and media**
+- [ ] Claim inventory is `PASS` or accepted `PASS WITH WARNINGS`
+- [ ] No unsourced price, guarantee, deadline, statistic, testimonial, or comparison
+- [ ] Visual inventory names the source and approval state of every meaningful asset
+- [ ] Generated or edited product/proof visuals received visual review
+- [ ] Contact sheet created when several assets changed or fidelity risk is high
 
 **Content and ship**
-- [ ] No Lorem Ipsum, no placeholder brands, no AI cliches, no round fake numbers
-- [ ] Hover, active, focus, loading, empty, and error states all present
+- [ ] No Lorem Ipsum, AI cliches, invented identities, or fake precision
+- [ ] Relevant hover, active, focus, loading, empty, and error states are present
 - [ ] No dead links, current nav item indicated
 - [ ] 404, legal links, form validation, favicon, meta tags, alt text
+- [ ] Rendered screenshots cover 320, 360, 375, 390, 430, tablet, and desktop
+- [ ] No horizontal overflow; CTA text stays inside button bounds
+- [ ] Keyboard, focus, semantics, touch targets, and reduced motion verified
+- [ ] Performance measured on the exact target being reported
+- [ ] Release receipt says `READY`, `READY WITH CAVEATS`, or `BLOCKED`
