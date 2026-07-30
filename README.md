@@ -10,7 +10,7 @@ Each skill is a self-contained folder. Install the ones you need.
 
 | Skill | What it does |
 |---|---|
-| [`landing-page-design`](./skills/landing-page-design/SKILL.md) | Builds a landing page from scratch — intake questions, page structure, conversion copy, plus a full visual system (type, spacing, radius, motion) |
+| [`landing-page-design`](./skills/landing-page-design/SKILL.md) | Builds, edits, and reviews landing pages — strategy, conversion copy, adaptable visual rules, claim and media verification, responsive QA, and release evidence |
 
 More on the way. [Upgrading an existing site instead of building new?](https://github.com/elayadesign/redesign-skill) That one lives in its own repo since it predates this collection.
 
@@ -45,13 +45,24 @@ Or paste the file into **Settings → Rules for AI**.
 </details>
 
 <details>
-<summary><b>Codex / Windsurf / other</b></summary>
+<summary><b>Codex</b></summary>
+
+```bash
+mkdir -p .agents/skills
+git clone https://github.com/elayadesign/ai-design-skills.git /tmp/ai-design-skills
+cp -r /tmp/ai-design-skills/skills/<skill-name> .agents/skills/
+```
+
+The skill's description makes Codex load it automatically when the task matches.
+</details>
+
+<details>
+<summary><b>Windsurf / Cline / other</b></summary>
 
 Copy the skill's `SKILL.md` into whatever your tool uses for project rules:
 
 | Tool | Path |
 |---|---|
-| Codex | `AGENTS.md` |
 | Windsurf | `.windsurfrules` |
 | Cline | `.clinerules` |
 | Generic | paste into your system prompt |
@@ -67,7 +78,7 @@ Download the skill's `SKILL.md` and upload it to a Project, or attach it to a ch
 
 ## Make it yours
 
-Every skill's design values (fonts, colors, spacing, motion) live in one section near the bottom of its file. Fork this repo, edit that section, and the rest of the skill follows automatically.
+Every skill's fallback design values (fonts, colors, spacing, motion) live in **Part B**. Existing project and brand systems take priority. Fork this repo and edit that section when you want a different default profile.
 
 ---
 
