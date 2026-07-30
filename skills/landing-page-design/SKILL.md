@@ -396,10 +396,15 @@ Rules:
 - Proof must support the exact nearby claim, not merely the general company.
 - Estimates must be labeled as estimates.
 - If a material claim lacks a source, use neutral draft language or leave an explicit hold.
+- Any material claim still marked `placeholder` or `hold` makes this gate `BLOCKED` and blocks shipping.
 - Contradictory CTA destinations, prices, terms, or guarantees block shipping.
 - A countdown without a verified basis, end time, and timezone blocks shipping.
 
-Result: `PASS`, `PASS WITH WARNINGS`, or `BLOCKED`.
+Result:
+
+- `PASS` — every material claim is verified or is an explicitly labeled estimate that is safe for the intended use.
+- `PASS WITH WARNINGS` — only documented non-material warnings remain.
+- `BLOCKED` — a material `placeholder` or `hold`, a conflicting term, or an unverified countdown remains.
 
 ## C2. Visual truth gate
 
@@ -438,6 +443,7 @@ Check:
 - CTA text bounds remain inside the button; `white-space: nowrap` alone is not proof
 - readable first viewport, clear primary action, usable touch targets, and no obscured content
 - keyboard navigation, visible focus, semantic landmarks, labels, and useful alt text
+- rendered color contrast meets WCAG AA for normal text, large text, and meaningful UI components, including text over images or gradients
 - sticky or fixed UI does not cover content or controls
 - forms show relevant validation, loading, success, and error states
 - motion respects reduced-motion settings and content remains visible without animation
@@ -458,10 +464,16 @@ Target: [page, URL, build, or commit]
 Claim truth: [result + source summary]
 Visual truth: [result + source/contact-sheet summary]
 Responsive QA: [widths, browsers, screenshots, result]
-Accessibility: [keyboard, focus, semantics, reduced motion]
+Accessibility: [keyboard, focus, semantics, color contrast, reduced motion]
 Performance: [tested target, LCP, CLS, largest bottleneck]
-Remaining holds: [only material unresolved items]
+Remaining holds: [none for READY; any material hold forces BLOCKED]
 ```
+
+Map gate results to readiness:
+
+- `READY` requires every applicable gate to be `PASS`.
+- `READY WITH CAVEATS` allows only documented non-material warnings.
+- `BLOCKED` is required when any gate is `BLOCKED` or any material `placeholder` or `hold` remains.
 
 ---
 
@@ -489,7 +501,7 @@ Then build section by section per A6. After implementation, return the Part C re
 - [ ] One offer, one audience, one primary action
 - [ ] No competing CTAs above the fold
 - [ ] Specific numbers instead of vague verbs
-- [ ] Every factual number and commercial term has a source or explicit hold
+- [ ] Every factual number and commercial term has a source; any remaining hold is visible and blocks shipping
 - [ ] Risk reversal is verified, not invented
 - [ ] Proof sits next to the claim it supports
 - [ ] Layout type chosen deliberately
@@ -507,7 +519,7 @@ Then build section by section per A6. After implementation, return the Part C re
 - [ ] Essential content remains visible if animation does not run
 
 **Truth and media**
-- [ ] Claim inventory is `PASS` or accepted `PASS WITH WARNINGS`
+- [ ] Claim inventory is `PASS`, or `PASS WITH WARNINGS` with only documented non-material warnings
 - [ ] No unsourced price, guarantee, deadline, statistic, testimonial, or comparison
 - [ ] Visual inventory names the source and approval state of every meaningful asset
 - [ ] Generated or edited product/proof visuals received visual review
@@ -521,5 +533,6 @@ Then build section by section per A6. After implementation, return the Part C re
 - [ ] Rendered screenshots cover 320, 360, 375, 390, 430, tablet, and desktop
 - [ ] No horizontal overflow; CTA text stays inside button bounds
 - [ ] Keyboard, focus, semantics, touch targets, and reduced motion verified
+- [ ] Rendered color contrast meets WCAG AA, including text over images or gradients
 - [ ] Performance measured on the exact target being reported
 - [ ] Release receipt says `READY`, `READY WITH CAVEATS`, or `BLOCKED`
