@@ -282,7 +282,7 @@ Only use Tailwind's radius values. Tailwind 4 renamed the two smallest steps, so
 inner radius = outer radius − gap
 ```
 
-Apply this only when the result is **greater than 2**. Below that, leave the inner shape square or unchanged.
+Apply this only when the result is **greater than 2px**. Below that, leave the inner shape square or unchanged. When the gap is 32px or more, the two shapes read as separate and the inner radius is picked from the table on its own. If the formula lands between two steps, snap to the closest step below, the same way B1 snaps type.
 
 Example: an outer card at `rounded-2xl` (16px) with 8px of internal padding gives an inner element an 8px radius (`rounded-lg`).
 
