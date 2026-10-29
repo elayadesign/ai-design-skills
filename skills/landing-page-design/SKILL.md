@@ -306,6 +306,8 @@ Use only these:
 
 This is the one place gradients are used, and only on text, never on the background.
 
+A text gradient only renders when the background is clipped to the glyphs. In Tailwind that is `bg-gradient-to-r from-white to-[#9B9B9B] bg-clip-text text-transparent` for dark and `bg-gradient-to-r from-black to-[#666666] bg-clip-text text-transparent` for light. Tailwind 4 spells the direction `bg-linear-to-r`.
+
 ### Layout
 
 - Heading and subheading both get a **max width of 680px**.
