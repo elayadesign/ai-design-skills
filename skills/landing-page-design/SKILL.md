@@ -402,10 +402,12 @@ When generating a landing page from scratch, return these in order before writin
 1. **Page outline** — sections and their order
 2. **Hero copy** — headline, subheadline, CTA, proof line
 3. **Benefits** — three to five outcome driven bullets
-4. **How it works** — three steps
-5. **FAQ** — six to twelve questions and answers
-6. **SEO / AEO** — index or noindex recommendation, plus title and meta if indexed
-7. **Layout recommendation** — A, B, C, or D, and why
+4. **Tagline reveal copy** — two or more lines in the A5 voice, for the B11 section
+5. **How it works** — three steps
+6. **FAQ** — six to twelve questions and answers
+7. **Risk reversal** — the trial, guarantee, or cancellation line from A4
+8. **SEO / AEO** — index or noindex recommendation, plus title and meta if indexed
+9. **Layout recommendation** — A, B, C, or D, and why
 
 Then build section by section per A6.
 
