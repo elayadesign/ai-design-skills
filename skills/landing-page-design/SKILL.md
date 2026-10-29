@@ -310,7 +310,7 @@ Motion should feel weighted and decelerate into place. Never ship a browser defa
 
 **Base curve:** `ease-[cubic-bezier(0.22,1,0.36,1)]` with `duration-500` for layout and position changes. Color and opacity shifts on hover may use `duration-300`, never shorter than 200ms.
 
-Animate only `transform` and `opacity`. Never animate `top`, `left`, `width`, or `height`.
+Move and resize elements only through `transform`. Never animate `top`, `left`, `width`, `height`, `margin`, or `padding`, since each of those forces layout on every frame. Color, background, and opacity may transition freely, which is what the hover rule above and the word reveal in B11 rely on.
 
 Respect `prefers-reduced-motion`: replace movement with a plain opacity change.
 
