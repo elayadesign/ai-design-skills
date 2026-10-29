@@ -351,7 +351,7 @@ Every interactive element ships with its full state set:
 
 - **Hover** — background shift, slight scale, or translate
 - **Active** — `scale(0.98)` or `translateY(1px)` for physical feedback
-- **Focus** — a visible focus ring. Accessibility requirement, not optional.
+- **Focus** — a visible focus ring on `focus-visible`, so keyboard users see it and mouse clicks do not trigger it. Never remove the outline without a replacement. Accessibility requirement, not optional.
 - **Loading** — skeleton loaders shaped like the real layout, not circular spinners
 - **Empty** — a composed "getting started" view, never a blank panel
 - **Error** — inline and specific. Never `window.alert()`.
