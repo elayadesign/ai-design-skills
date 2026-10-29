@@ -330,6 +330,8 @@ Sections entering the viewport rise a short distance (Spacing-400, 32px) and fad
 
 Trigger reveals with `IntersectionObserver` or Framer Motion's `whileInView`. Never attach work to an unthrottled `window.addEventListener('scroll')`, since it runs on every frame and drags down mobile performance.
 
+Content must never depend on JavaScript to become visible. Apply the hidden starting state only after a script has run, for example by adding a `js` class to `<html>` and scoping the initial `opacity-0` to it, so a failed script, a crawler, or a reader with scripts off still sees the full page.
+
 ---
 
 ## B8. Content realism
