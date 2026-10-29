@@ -444,6 +444,7 @@ Then build section by section per A6.
 - [ ] Hover, active, focus, loading, empty, and error states all present
 - [ ] No dead links, current nav item indicated
 - [ ] 404, legal links, form validation, favicon, meta tags, alt text
+- [ ] Focus ring on `focus-visible`, skip link, `lang`, viewport, one `<h1>`
 
 ---
 
