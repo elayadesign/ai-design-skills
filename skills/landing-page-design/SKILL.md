@@ -240,23 +240,25 @@ In code, define each style once as a reusable class or token with the same name 
 
 Only these values. Nothing between them, nothing outside them.
 
-| Token | Value |
-|---|---|
-| Spacing-0 | 0 |
-| Spacing-25 | 2px |
-| Spacing-50 | 4px |
-| Spacing-75 | 8px |
-| Spacing-100 | 12px |
-| Spacing-200 | 16px |
-| Spacing-300 | 24px |
-| Spacing-400 | 32px |
-| Spacing-500 | 40px |
-| Spacing-600 | 48px |
-| Spacing-700 | 64px |
-| Spacing-800 | 80px |
-| Spacing-900 | 96px |
+| Token | Value | Tailwind step |
+|---|---|---|
+| Spacing-0 | 0 | `0` |
+| Spacing-25 | 2px | `0.5` |
+| Spacing-50 | 4px | `1` |
+| Spacing-75 | 8px | `2` |
+| Spacing-100 | 12px | `3` |
+| Spacing-200 | 16px | `4` |
+| Spacing-300 | 24px | `6` |
+| Spacing-400 | 32px | `8` |
+| Spacing-500 | 40px | `10` |
+| Spacing-600 | 48px | `12` |
+| Spacing-700 | 64px | `16` |
+| Spacing-800 | 80px | `20` |
+| Spacing-900 | 96px | `24` |
 
-**Main buttons:** 8px vertical padding, 12px horizontal padding.
+The step column is the number that goes after `p-`, `m-`, `gap-`, `space-y-`, and friends. Steps that exist in Tailwind but not in this table (`5`, `7`, `9`, `14`, and so on) are off limits.
+
+**Main buttons:** 8px vertical padding, 12px horizontal padding (`py-2 px-3`).
 
 ## B3. Corner radius
 
