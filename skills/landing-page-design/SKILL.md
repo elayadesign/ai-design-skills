@@ -326,7 +326,7 @@ Respect `prefers-reduced-motion`: replace movement with a plain opacity change.
 
 ### Scroll reveals
 
-Sections entering the viewport rise a short distance (Spacing-400, 32px) and fade from 0 to full opacity over 600 to 800ms on the base curve. Reveal each section once; do not replay on scroll back up.
+Sections entering the viewport rise a short distance (Spacing-400, 32px) and fade from 0 to full opacity over `duration-700` (700ms) on the base curve. Tailwind has no 600 or 800 step, so 700 is the one value in that range that lands on the default scale. Reveal each section once; do not replay on scroll back up.
 
 Trigger reveals with `IntersectionObserver` or Framer Motion's `whileInView`. Never attach work to an unthrottled `window.addEventListener('scroll')`, since it runs on every frame and drags down mobile performance.
 
