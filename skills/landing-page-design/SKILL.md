@@ -262,7 +262,19 @@ The step column is the number that goes after `p-`, `m-`, `gap-`, `space-y-`, an
 
 ## B3. Corner radius
 
-Only use Tailwind's radius values.
+Only use Tailwind's radius values. Tailwind 4 renamed the two smallest steps, so both names are listed.
+
+| Tailwind 3 | Tailwind 4 | Value |
+|---|---|---|
+| `rounded-none` | `rounded-none` | 0 |
+| `rounded-sm` | `rounded-xs` | 2px |
+| `rounded` | `rounded-sm` | 4px |
+| `rounded-md` | `rounded-md` | 6px |
+| `rounded-lg` | `rounded-lg` | 8px |
+| `rounded-xl` | `rounded-xl` | 12px |
+| `rounded-2xl` | `rounded-2xl` | 16px |
+| `rounded-3xl` | `rounded-3xl` | 24px |
+| `rounded-full` | `rounded-full` | 9999px |
 
 **Nested radius formula.** When a shape sits inside another shape and the gap between them is **less than 32px**:
 
