@@ -369,6 +369,9 @@ Things that get forgotten and make a page feel unfinished:
 - Cookie consent where the jurisdiction requires it
 - A branded favicon
 - `<title>`, meta description, `og:image`, and social sharing tags
+- A canonical URL on every indexed page
+- `lang` on `<html>` and a viewport meta tag
+- Exactly one `<h1>`, the hero headline
 - Alt text on every meaningful image
 - Semantic HTML: `<nav>`, `<main>`, `<article>`, `<aside>`, `<section>`
 - A way back from every page
