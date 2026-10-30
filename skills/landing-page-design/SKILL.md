@@ -299,7 +299,8 @@ Every piece of sample content should read like it came from a real product with 
 - **Write the copy.** No placeholder Latin, no "Your headline here". Draft real sentences in the product's voice.
 - **People.** Give testimonials and team members full, specific names that fit the product's audience and region. Never reuse one face for two people.
 - **Brands and logos.** Invent names that sound like they belong in the product's industry. A logistics tool's customers sound like logistics companies, not generic tech startups.
-- **Numbers.** Avoid suspiciously round figures. Pricing should look like real pricing, metrics should carry a decimal or an odd final digit, and dates across a list should vary.
+- **Never invent facts.** On a real product's page, prices, guarantees, statistics, customer counts, testimonials, and logos must come from the user or a real source. When a fact is missing, use a clearly marked placeholder such as `{{price}}` or `{{testimonial}}` instead of making one up.
+- **Sample numbers.** In fictional demos and prototypes (where the invented names and brands above are fine), avoid suspiciously round figures. Pricing should look like real pricing, metrics should carry a decimal or an odd final digit, and dates across a list should vary.
 - **Banned filler words.** Do not write "revolutionize", "supercharge", "cutting edge", "effortless", "transform your workflow", "take it to the next level", "harness the power", or "world class". Say what the product does in plain terms instead.
 - **Sentence case** for headings and buttons.
 - **System messages.** Confirmations are calm and specific ("Invoice sent to Dana"). Errors say what failed and what to do next ("Upload failed. The file is over 20 MB."). No cute interjections, no exclamation marks.
@@ -331,6 +332,7 @@ Things that get forgotten and make a page feel unfinished:
 - Alt text on every meaningful image
 - Semantic HTML: `<nav>`, `<main>`, `<article>`, `<aside>`, `<section>`
 - A way back from every page
+- A check at 390px wide: no horizontal overflow, buttons keep their text inside, and the primary action is visible in the first screen
 
 ## B11. Tagline reveal section (mandatory)
 
@@ -349,6 +351,7 @@ Every landing page includes one large type section stating the core benefit or t
 - As the section scrolls into view, each word transitions individually from that muted tone to the full text color, in reading order.
 - Words activate one at a time as they cross a trigger line, not the entire block flipping at once. The transition uses the base curve from B7, never a linear fade.
 - Implement with `IntersectionObserver` per word, or a single scroll listener throttled through `requestAnimationFrame`. Never an unthrottled `window.addEventListener('scroll')`, per B7.
+- Under `prefers-reduced-motion`, show the final text at full color right away, with no word by word animation.
 
 ---
 
@@ -389,6 +392,8 @@ Then build section by section per A6.
 - [ ] Icons from Phosphor, Solar, or Iconamoon
 - [ ] Every transition uses the B7 base curve, scroll reveals use IntersectionObserver
 - [ ] Tagline reveal section present, minimum two lines, words activate one at a time on scroll
+- [ ] No invented prices, stats, or testimonials; missing facts use marked placeholders
+- [ ] Checked at 390px with no overflow
 
 **Content and ship**
 - [ ] Real draft copy, believable names and numbers, no banned filler words
@@ -399,6 +404,8 @@ Then build section by section per A6.
 ---
 
 ## Credits
+
+The no invented facts rule and reduced motion support for the tagline reveal were suggested by [@allen-baler](https://github.com/allen-baler) in [#1](https://github.com/elayadesign/ai-design-skills/pull/1).
 
 Parts of this skill were adapted from [taste-skill](https://github.com/Leonxlnx/taste-skill) by Leon Lin ([@LexnLin](https://x.com/LexnLin)), MIT licensed. Its redesign audit structure, content realism checks, and motion and navigation ideas informed the matching sections here, which have since been rewritten.
 
