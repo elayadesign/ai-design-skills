@@ -6,3 +6,4 @@ node_modules/
 *.log
 .vscode/
 .idea/
+__pycache__/
