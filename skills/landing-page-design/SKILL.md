@@ -191,10 +191,50 @@ If an existing size does not land exactly on a step, snap it to the **closest st
 
 Do not combine scale snapping with independently set custom line heights elsewhere in an audit. Tracking and line height may only be adjusted **within** the value the matched step already provides, so the two rules never fight each other.
 
-### Button type
+### Text styles
 
-- Main buttons: `text-base` (16px), semibold.
-- Smaller header buttons: `text-sm` (14px), semibold.
+Every piece of text uses one of these named styles. Never style text with a loose size and weight. Use the names exactly as written, including capitalization.
+
+| Style | Scale step | Size / line height | Weight |
+|---|---|---|---|
+| Heading 1 | `text-6xl` | 60 / 60 | Semibold |
+| Heading 2 | `text-5xl` | 48 / 48 | Semibold |
+| Heading 3 | `text-4xl` | 36 / 40 | Semibold |
+| Heading 4 | `text-3xl` | 30 / 36 | Semibold |
+| Heading 5 | `text-2xl` | 24 / 32 | Semibold |
+| Heading 6 | `text-xl` | 20 / 28 | Semibold |
+| Title 1 | `text-xl` | 20 / 28 | Medium |
+| Title 2 | `text-lg` | 18 / 28 | Medium |
+| Title 3 | `text-base` | 16 / 24 | Medium |
+| Title 4 | `text-sm` | 14 / 20 | Medium |
+| Title 5 | `text-xs` | 12 / 16 | Medium |
+| Body 1 | `text-base` | 16 / 24 | Semibold |
+| Body 2 | `text-base` | 16 / 24 | Medium |
+| Body 3 | `text-base` | 16 / 24 | Regular |
+| Body 4 | `text-sm` | 14 / 20 | Semibold |
+| Body 5 | `text-sm` | 14 / 20 | Medium |
+| Body 6 | `text-sm` | 14 / 20 | Regular |
+| Button-lg | `text-lg` | 18 / 28 | Semibold |
+| Button-md | `text-base` | 16 / 24 | Semibold |
+| Button-sm | `text-sm` | 14 / 20 | Semibold |
+| Button-Xsm | `text-xs` | 12 / 16 | Semibold |
+| Caption 1 | `text-sm` | 14 / 20 | Medium |
+| Caption 2 | `text-sm` | 14 / 20 | Regular |
+| Caption 3 | `text-xs` | 12 / 16 | Semibold |
+| Caption 4 | `text-xs` | 12 / 16 | Medium |
+| Caption 5 | `text-xs` | 12 / 16 | Regular |
+
+How the groups work:
+
+- **Heading** for page and section headings, largest to smallest. Heading 1 is the hero.
+- **Title** for card titles, list item titles, labels that lead a block, and nav items.
+- **Body** for running text. Within each size, 1 is the strongest weight and the last is regular.
+- **Button** for text inside buttons only. Main buttons use Button-md, small header buttons use Button-sm.
+- **Caption** for metadata, helper text, badges, timestamps, and fine print.
+
+The sizes come from the type scale above, so a style never introduces an off scale value. If a project needs a new style, add the next number in its group (for example Body 7) built from a scale step, rather than inventing a new name.
+
+In code, define each style once as a reusable class or token with the same name in kebab case (`heading-1`, `body-4`, `button-md`, `caption-2`) and apply that, instead of repeating size and weight utilities on every element.
 
 ## B2. Spacing
 
@@ -343,7 +383,7 @@ Every landing page includes one large type section stating the core benefit or t
 - A benefit statement or tagline, written in the voice of A5, not a generic section heading.
 
 **Typography**
-- Size `text-4xl` to `text-6xl` depending on line count, following the B1 type scale.
+- Use Heading 3 to Heading 1 from the B1 text styles, depending on line count.
 - Max width capped like the hero, so lines break at meaningful points per B5.
 
 **Animation**
@@ -385,6 +425,7 @@ Then build section by section per A6.
 - [ ] Single approved typeface, no italics, no ultra bold
 - [ ] No hyphens in copy, no orphaned words
 - [ ] Every font size lands on a Tailwind scale step
+- [ ] Every text element uses a named text style (Heading, Title, Body, Button, Caption)
 - [ ] Every spacing value comes from the spacing table
 - [ ] Nested radii follow the formula
 - [ ] No single sided card borders, no background gradients
