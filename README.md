@@ -1,5 +1,7 @@
 # AI Design Skills
 
+[![skills.sh](https://skills.sh/b/elayadesign/ai-design-skills)](https://skills.sh/elayadesign/ai-design-skills)
+
 A growing collection of design skills for AI coding tools — Claude Code, Cursor, Codex, Windsurf, and anything else that reads a markdown rules file.
 
 Each skill is a self-contained folder. Install the ones you need.
@@ -18,10 +20,36 @@ More on the way. [Upgrading an existing site instead of building new?](https://g
 
 ## Install
 
-Pick a skill from the table above, then swap `<skill-name>` below for its folder name.
+Uses the [skills CLI](https://skills.sh). Needs Node.js.
 
-<details open>
-<summary><b>Claude Code</b></summary>
+```bash
+npx skills add elayadesign/ai-design-skills
+```
+
+It lists the skills in this repo and asks which ones to install and for which agents. Add flags to skip the prompts:
+
+```bash
+# one skill
+npx skills add elayadesign/ai-design-skills --skill landing-page-design
+
+# pick agents
+npx skills add elayadesign/ai-design-skills -a claude-code -a cursor
+
+# user-level instead of project-level
+npx skills add elayadesign/ai-design-skills -g
+
+# see what's available without installing
+npx skills add elayadesign/ai-design-skills --list
+```
+
+Add `-y` to skip confirmations. Skills land in `.claude/skills/` for Claude Code and `.agents/skills/` for Cursor, Codex and other agents. Run `npx skills update` later to pull changes.
+
+Then just ask, in plain language, for what the skill covers.
+
+<details>
+<summary><b>Manual install</b></summary>
+
+Claude Code:
 
 ```bash
 mkdir -p .claude/skills
@@ -29,11 +57,7 @@ git clone https://github.com/elayadesign/ai-design-skills.git /tmp/ai-design-ski
 cp -r /tmp/ai-design-skills/skills/<skill-name> .claude/skills/
 ```
 
-Then just ask, in plain language, for what that skill covers.
-</details>
-
-<details>
-<summary><b>Cursor</b></summary>
+Cursor:
 
 ```bash
 mkdir -p .cursor/rules
@@ -41,13 +65,7 @@ curl -o .cursor/rules/<skill-name>.md \
   https://raw.githubusercontent.com/elayadesign/ai-design-skills/main/skills/<skill-name>/SKILL.md
 ```
 
-Or paste the file into **Settings → Rules for AI**.
-</details>
-
-<details>
-<summary><b>Codex / Windsurf / other</b></summary>
-
-Copy the skill's `SKILL.md` into whatever your tool uses for project rules:
+Codex, Windsurf, other: copy the skill's `SKILL.md` into your tool's rules file.
 
 | Tool | Path |
 |---|---|
