@@ -65,6 +65,8 @@ curl -o .cursor/rules/<skill-name>.md \
   https://raw.githubusercontent.com/elayadesign/ai-design-skills/main/skills/<skill-name>/SKILL.md
 ```
 
+Or paste the file into **Settings → Rules for AI**.
+
 Codex, Windsurf, other: copy the skill's `SKILL.md` into your tool's rules file.
 
 | Tool | Path |
