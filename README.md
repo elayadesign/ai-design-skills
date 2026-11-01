@@ -17,6 +17,8 @@ Each skill is a self-contained folder. Install the ones you need.
 
 More on the way. [Upgrading an existing site instead of building new?](https://github.com/elayadesign/redesign-skill) That one lives in its own repo since it predates this collection.
 
+Want an audit of your existing site? Try [SlopScan](https://slopscan.co). It checks a live page against these same rules and gives you a fix prompt for your agent.
+
 ---
 
 ## Install
