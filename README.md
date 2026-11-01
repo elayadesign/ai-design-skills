@@ -13,6 +13,7 @@ Each skill is a self-contained folder. Install the ones you need.
 | Skill | What it does |
 |---|---|
 | [`landing-page-design`](./skills/landing-page-design/SKILL.md) | Builds a landing page from scratch — intake questions, page structure, conversion copy, plus a full visual system (type, spacing, radius, motion) |
+| [`figma-designer`](./skills/figma-designer/SKILL.md) | Designs inside Figma with real structure: spacing, radius and color variables, named text styles, auto layout, components with every state, and a Foundations frame that updates with the tokens |
 
 More on the way. [Upgrading an existing site instead of building new?](https://github.com/elayadesign/redesign-skill) That one lives in its own repo since it predates this collection.
 
