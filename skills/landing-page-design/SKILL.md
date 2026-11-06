@@ -326,9 +326,11 @@ Respect `prefers-reduced-motion`: replace movement with a plain opacity change.
 
 ### Scroll reveals
 
-Sections entering the viewport rise a short distance (Spacing-400, 32px) and fade from 0 to full opacity over 600 to 800ms on the base curve. Reveal each section once; do not replay on scroll back up.
+Sections entering the viewport rise a short distance (Spacing-400, 32px) and fade from 0 to full opacity over `duration-700` (700ms) on the base curve. Tailwind has no 600 or 800 step, so 700 is the one value in that range that lands on the default scale. Reveal each section once; do not replay on scroll back up.
 
 Trigger reveals with `IntersectionObserver` or Framer Motion's `whileInView`. Never attach work to an unthrottled `window.addEventListener('scroll')`, since it runs on every frame and drags down mobile performance.
+
+Content must never depend on JavaScript to become visible. Apply the hidden starting state only after a script has run, for example by adding a `js` class to `<html>` and scoping the initial `opacity-0` to it, so a failed script, a crawler, or a reader with scripts off still sees the full page.
 
 ---
 
@@ -432,6 +434,7 @@ Then build section by section per A6.
 - [ ] Hero heading and subheading capped at 680px with meaningful line breaks
 - [ ] Icons from Phosphor, Solar, or Iconamoon
 - [ ] Every transition uses the B7 base curve, scroll reveals use IntersectionObserver
+- [ ] Revealed content is still visible when JavaScript fails
 - [ ] Tagline reveal section present, minimum two lines, words activate one at a time on scroll
 - [ ] No invented prices, stats, or testimonials; missing facts use marked placeholders
 - [ ] Checked at 390px with no overflow
