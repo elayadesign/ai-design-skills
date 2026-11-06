@@ -240,27 +240,41 @@ In code, define each style once as a reusable class or token with the same name 
 
 Only these values. Nothing between them, nothing outside them.
 
-| Token | Value |
-|---|---|
-| Spacing-0 | 0 |
-| Spacing-25 | 2px |
-| Spacing-50 | 4px |
-| Spacing-75 | 8px |
-| Spacing-100 | 12px |
-| Spacing-200 | 16px |
-| Spacing-300 | 24px |
-| Spacing-400 | 32px |
-| Spacing-500 | 40px |
-| Spacing-600 | 48px |
-| Spacing-700 | 64px |
-| Spacing-800 | 80px |
-| Spacing-900 | 96px |
+| Token | Value | Tailwind step |
+|---|---|---|
+| Spacing-0 | 0 | `0` |
+| Spacing-25 | 2px | `0.5` |
+| Spacing-50 | 4px | `1` |
+| Spacing-75 | 8px | `2` |
+| Spacing-100 | 12px | `3` |
+| Spacing-200 | 16px | `4` |
+| Spacing-300 | 24px | `6` |
+| Spacing-400 | 32px | `8` |
+| Spacing-500 | 40px | `10` |
+| Spacing-600 | 48px | `12` |
+| Spacing-700 | 64px | `16` |
+| Spacing-800 | 80px | `20` |
+| Spacing-900 | 96px | `24` |
 
-**Main buttons:** 8px vertical padding, 12px horizontal padding.
+The step column is the number that goes after `p-`, `m-`, `gap-`, `space-y-`, and friends. Steps that exist in Tailwind but not in this table (`5`, `7`, `9`, `14`, and so on) are off limits.
+
+**Main buttons:** 8px vertical padding, 12px horizontal padding (`py-2 px-3`).
 
 ## B3. Corner radius
 
-Only use Tailwind's radius values.
+Only use Tailwind's radius values. Tailwind 4 renamed the two smallest steps, so both names are listed.
+
+| Tailwind 3 | Tailwind 4 | Value |
+|---|---|---|
+| `rounded-none` | `rounded-none` | 0 |
+| `rounded-sm` | `rounded-xs` | 2px |
+| `rounded` | `rounded-sm` | 4px |
+| `rounded-md` | `rounded-md` | 6px |
+| `rounded-lg` | `rounded-lg` | 8px |
+| `rounded-xl` | `rounded-xl` | 12px |
+| `rounded-2xl` | `rounded-2xl` | 16px |
+| `rounded-3xl` | `rounded-3xl` | 24px |
+| `rounded-full` | `rounded-full` | 9999px |
 
 **Nested radius formula.** When a shape sits inside another shape and the gap between them is **less than 32px**:
 
@@ -268,7 +282,7 @@ Only use Tailwind's radius values.
 inner radius = outer radius − gap
 ```
 
-Apply this only when the result is **greater than 2**. Below that, leave the inner shape square or unchanged.
+Apply this only when the result is **greater than 2px**. Below that, leave the inner shape square or unchanged. When the gap is 32px or more, the two shapes read as separate and the inner radius is picked from the table on its own. If the formula lands between two steps, snap to the closest step below, the same way B1 snaps type.
 
 Example: an outer card at `rounded-2xl` (16px) with 8px of internal padding gives an inner element an 8px radius (`rounded-lg`).
 
@@ -291,6 +305,8 @@ Use only these:
 - **Light theme:** left to right gradient on the heading text, `#000000` → `#666666`.
 
 This is the one place gradients are used, and only on text, never on the background.
+
+A text gradient only renders when the background is clipped to the glyphs. In Tailwind that is `bg-gradient-to-r from-white to-[#9B9B9B] bg-clip-text text-transparent` for dark and `bg-gradient-to-r from-black to-[#666666] bg-clip-text text-transparent` for light. Tailwind 4 spells the direction `bg-linear-to-r`.
 
 ### Layout
 
