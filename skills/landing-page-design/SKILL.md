@@ -434,6 +434,7 @@ Then build section by section per A6.
 - [ ] Hero heading and subheading capped at 680px with meaningful line breaks
 - [ ] Icons from Phosphor, Solar, or Iconamoon
 - [ ] Every transition uses the B7 base curve, scroll reveals use IntersectionObserver
+- [ ] Revealed content is still visible when JavaScript fails
 - [ ] Tagline reveal section present, minimum two lines, words activate one at a time on scroll
 - [ ] No invented prices, stats, or testimonials; missing facts use marked placeholders
 - [ ] Checked at 390px with no overflow
