@@ -118,11 +118,14 @@ Note: the copy rules in B1 still apply. No hyphens inside sentences, no orphaned
 Work section by section, in this order:
 
 1. Hero
-2. Benefits
-3. How it works
-4. Proof
-5. FAQ
-6. Final CTA
+2. Problem to solution
+3. Benefits
+4. Tagline reveal (B11)
+5. How it works
+6. Proof
+7. FAQ
+8. Risk reversal
+9. Final CTA
 
 Never rebuild the whole page on each iteration. Section by section keeps control and keeps diffs reviewable.
 
@@ -402,10 +405,12 @@ When generating a landing page from scratch, return these in order before writin
 1. **Page outline** — sections and their order
 2. **Hero copy** — headline, subheadline, CTA, proof line
 3. **Benefits** — three to five outcome driven bullets
-4. **How it works** — three steps
-5. **FAQ** — six to twelve questions and answers
-6. **SEO / AEO** — index or noindex recommendation, plus title and meta if indexed
-7. **Layout recommendation** — A, B, C, or D, and why
+4. **Tagline reveal copy** — two or more lines in the A5 voice, for the B11 section
+5. **How it works** — three steps
+6. **FAQ** — six to twelve questions and answers
+7. **Risk reversal** — the trial, guarantee, or cancellation line from A4
+8. **SEO / AEO** — index or noindex recommendation, plus title and meta if indexed
+9. **Layout recommendation** — A, B, C, or D, and why
 
 Then build section by section per A6.
 
