@@ -118,11 +118,14 @@ Note: the copy rules in B1 still apply. No hyphens inside sentences, no orphaned
 Work section by section, in this order:
 
 1. Hero
-2. Benefits
-3. How it works
-4. Proof
-5. FAQ
-6. Final CTA
+2. Problem to solution
+3. Benefits
+4. Tagline reveal (B11)
+5. How it works
+6. Proof
+7. FAQ
+8. Risk reversal
+9. Final CTA
 
 Never rebuild the whole page on each iteration. Section by section keeps control and keeps diffs reviewable.
 
