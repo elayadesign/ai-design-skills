@@ -351,7 +351,7 @@ Every interactive element ships with its full state set:
 
 - **Hover** — background shift, slight scale, or translate
 - **Active** — `scale(0.98)` or `translateY(1px)` for physical feedback
-- **Focus** — a visible focus ring. Accessibility requirement, not optional.
+- **Focus** — a visible focus ring on `focus-visible`, so keyboard users see it and mouse clicks do not trigger it. Never remove the outline without a replacement. Accessibility requirement, not optional.
 - **Loading** — skeleton loaders shaped like the real layout, not circular spinners
 - **Empty** — a composed "getting started" view, never a blank panel
 - **Error** — inline and specific. Never `window.alert()`.
@@ -369,6 +369,9 @@ Things that get forgotten and make a page feel unfinished:
 - Cookie consent where the jurisdiction requires it
 - A branded favicon
 - `<title>`, meta description, `og:image`, and social sharing tags
+- A canonical URL on every indexed page
+- `lang` on `<html>` and a viewport meta tag
+- Exactly one `<h1>`, the hero headline
 - Alt text on every meaningful image
 - Semantic HTML: `<nav>`, `<main>`, `<article>`, `<aside>`, `<section>`
 - A way back from every page
@@ -441,6 +444,7 @@ Then build section by section per A6.
 - [ ] Hover, active, focus, loading, empty, and error states all present
 - [ ] No dead links, current nav item indicated
 - [ ] 404, legal links, form validation, favicon, meta tags, alt text
+- [ ] Focus ring on `focus-visible`, skip link, `lang`, viewport, one `<h1>`
 
 ---
 
