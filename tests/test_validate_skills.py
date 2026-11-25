@@ -1,13 +1,17 @@
 """Tests for scripts/validate_skills.py. Run with: python -m unittest discover tests"""
 
+import io
+import os
 import sys
 import tempfile
 import unittest
+from contextlib import redirect_stdout
 from pathlib import Path
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 
-from validate_skills import main, validate_skill  # noqa: E402
+from validate_skills import main, report, validate_skill  # noqa: E402
 
 VALID_DESCRIPTION = "Builds landing pages. Use when working on a marketing site."
 
@@ -102,6 +106,35 @@ class ValidateSkillTest(unittest.TestCase):
         skill = self.make_skill("my-skill", self.frontmatter(name="123"))
         self.assertEqual(validate_skill(skill), ["'name' must be text"])
 
+    def test_indented_dashes_in_multiline_scalar_do_not_close_frontmatter(self):
+        content = (
+            "---\n"
+            "description: |\n"
+            "  First paragraph\n"
+            "  ---\n"
+            "  Second paragraph\n"
+            "name: my-skill\n"
+            "compatibility: " + ("x" * 501) + "\n"
+            "---\n"
+        )
+        skill = self.make_skill("my-skill", content)
+        problems = validate_skill(skill)
+        self.assertEqual(len(problems), 1)
+        self.assertIn("compatibility", problems[0])
+
+    def test_utf8_bom_is_accepted(self):
+        skill = self.root / "bom-skill"
+        skill.mkdir()
+        payload = self.frontmatter(name="bom-skill").encode("utf-8-sig")
+        (skill / "SKILL.md").write_bytes(payload)
+        self.assertEqual(validate_skill(skill), [])
+
+    def test_invalid_utf8_reports_problem_without_crashing(self):
+        skill = self.root / "bad-encoding"
+        skill.mkdir()
+        (skill / "SKILL.md").write_bytes(b"\xff\xfe---\nname: bad-encoding\n---\n")
+        self.assertEqual(validate_skill(skill), ["SKILL.md must be valid UTF-8 text"])
+
 
 class MainTest(unittest.TestCase):
     def test_exit_codes(self):
@@ -113,6 +146,8 @@ class MainTest(unittest.TestCase):
                 f"---\nname: good-skill\ndescription: {VALID_DESCRIPTION}\n---\n",
                 encoding="utf-8",
             )
+            (root / ".hidden").mkdir()
+            (root / "__pycache__").mkdir()
             self.assertEqual(main(["prog", str(root)]), 0)
 
             (root / "broken").mkdir()
@@ -120,6 +155,16 @@ class MainTest(unittest.TestCase):
 
     def test_missing_folder_fails(self):
         self.assertEqual(main(["prog", "does-not-exist"]), 1)
+
+    def test_github_actions_annotation_escapes_newlines_and_percent(self):
+        buf = io.StringIO()
+        with patch.dict(os.environ, {"GITHUB_ACTIONS": "true"}):
+            with redirect_stdout(buf):
+                report(Path("skills/my-skill/SKILL.md"), "bad yaml: 100%\nline 2")
+        self.assertEqual(
+            buf.getvalue(),
+            "::error file=skills/my-skill/SKILL.md::bad yaml: 100%25%0Aline 2\n",
+        )
 
 
 if __name__ == "__main__":

@@ -30,11 +30,11 @@ NAME_PATTERN = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 def read_frontmatter(text):
     """Return (frontmatter_dict, error). Exactly one of them is None."""
     lines = text.splitlines()
-    if not lines or lines[0].strip() != "---":
+    if not lines or lines[0].rstrip() != "---":
         return None, "file must start with a '---' frontmatter line"
 
     for end, line in enumerate(lines[1:], start=1):
-        if line.strip() == "---":
+        if line.rstrip() == "---":
             break
     else:
         return None, "frontmatter is missing its closing '---' line"
@@ -70,7 +70,12 @@ def validate_skill(skill_dir):
     if not skill_file.is_file():
         return ["SKILL.md is missing"]
 
-    data, error = read_frontmatter(skill_file.read_text(encoding="utf-8"))
+    try:
+        raw_text = skill_file.read_text(encoding="utf-8-sig")
+    except UnicodeDecodeError:
+        return ["SKILL.md must be valid UTF-8 text"]
+
+    data, error = read_frontmatter(raw_text)
     if error:
         return [error]
 
@@ -96,7 +101,12 @@ def validate_skill(skill_dir):
 def report(path, problem):
     """Print a problem, as a GitHub annotation when running in Actions."""
     if os.environ.get("GITHUB_ACTIONS") == "true":
-        print(f"::error file={path}::{problem}")
+        escaped = (
+            problem.replace("%", "%25")
+            .replace("\r", "%0D")
+            .replace("\n", "%0A")
+        )
+        print(f"::error file={path}::{escaped}")
     else:
         print(f"{path}: {problem}")
 
@@ -107,7 +117,11 @@ def main(argv):
         print(f"{skills_root}: folder not found")
         return 1
 
-    skill_dirs = sorted(p for p in skills_root.iterdir() if p.is_dir())
+    skill_dirs = sorted(
+        p
+        for p in skills_root.iterdir()
+        if p.is_dir() and not p.name.startswith(".") and p.name != "__pycache__"
+    )
     if not skill_dirs:
         print(f"{skills_root}: no skills found")
         return 1
